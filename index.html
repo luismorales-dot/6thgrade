@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Writing Task: Describe the Scene</title>
+    <title>Writing A2+: Food Truck Experience</title>
     <style>
         :root {
-            --primary: #8e44ad; /* Morado para diferenciar de la tarea anterior */
+            --primary: #d35400; /* Naranja intenso */
             --success: #27ae60;
             --error: #e74c3c;
             --warning: #f39c12;
-            --bg: #fdfefe;
+            --bg: #fdfaf4;
             --text: #2c3e50;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f3f4;
+            background-color: var(--bg);
             color: var(--text);
             margin: 0;
             padding: 20px;
@@ -25,15 +25,30 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 850px;
             width: 100%;
             background: white;
-            padding: 40px;
+            padding: 35px;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        header { text-align: center; border-bottom: 2px solid #eee; margin-bottom: 25px; padding-bottom: 10px; }
+        header { text-align: center; border-bottom: 2px solid #eee; margin-bottom: 20px; padding-bottom: 10px; }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 2px solid #f39c12;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
 
         .student-info-grid {
             display: grid;
@@ -51,22 +66,6 @@
             box-sizing: border-box;
         }
 
-        .visual-stimulus {
-            text-align: center;
-            margin-bottom: 25px;
-            padding: 15px;
-            background: #fcf3cf;
-            border-radius: 12px;
-            border: 2px dashed #f1c40f;
-        }
-
-        .visual-stimulus img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
         .instruction-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -74,23 +73,24 @@
             margin-bottom: 20px;
         }
 
-        .box { padding: 15px; border-radius: 10px; font-size: 0.85rem; line-height: 1.4; }
-        .instructions { background: #ebf5fb; border: 1px solid #3498db; }
+        .box { padding: 15px; border-radius: 10px; font-size: 0.82rem; line-height: 1.4; }
+        .instructions { background: #fff9db; border: 1px solid #f1c40f; }
         .vocabulary { background: #e8f8f5; border: 1px solid #2ecc71; }
         .model { background: #fdf2e9; border: 1px solid #e67e22; grid-column: span 2; color: #d35400; font-weight: 500; }
 
         .writing-zone { position: relative; }
         textarea {
             width: 100%;
-            height: 180px;
+            height: 160px;
             padding: 20px;
             font-size: 1.1rem;
-            border: 2px solid #ddd;
+            border: 2px solid var(--primary);
             border-radius: 12px;
             resize: none;
             box-sizing: border-box;
             transition: 0.3s;
             font-family: inherit;
+            line-height: 1.6;
         }
 
         .word-counter {
@@ -118,7 +118,6 @@
             transition: 0.3s;
         }
 
-        .btn-submit:hover { background: #7d3c98; }
         .btn-submit:disabled { background: #bdc3c7; cursor: not-allowed; }
 
         #feedbackArea {
@@ -141,12 +140,17 @@
 
 <div class="container">
     <header>
-        <h1>Writing: You are the Chef! 🍕</h1>
-        <p>Look at the image, assume your role, and write.</p>
+        <h1>Writing: Delicious Food Trucks! 🌭</h1>
+        <p>Complete the story using the new grammar points.</p>
     </header>
 
     <div id="blockMessage" style="display:none; color: var(--error); text-align: center; font-weight: bold; margin-bottom: 20px; padding: 15px; border: 1px solid var(--error); border-radius: 8px; background-color: #fdeaea;">
-        ⚠️ You have already submitted this task.
+        ⚠️ Task already submitted.
+    </div>
+
+    <div class="image-container">
+        <img src="https://img.freepik.com/premium-vector/family-eating-outdoor-food-truck-park-flat-illustration_1241514-432.jpg" alt="Family eating hotdogs">
+        <p><em>(Look at the family, the hotdogs, and the park rules)</em></p>
     </div>
 
     <div class="student-info-grid">
@@ -155,59 +159,62 @@
         <input type="text" id="course" placeholder="Class / Grade" required>
     </div>
 
-    <div class="visual-stimulus">
-        <h3>🖼️ THE SCENE:</h3>
-        <img src="https://img.freepik.com/vector-premium/lindo-chef-cocinando-cocina-dibujos-animados_18591-53609.jpg" alt="Chef Sam in the kitchen">
-        <p><em>(Sam the Chef is in his kitchen cooking a delicious pizza)</em></p>
-    </div>
-
     <div class="instruction-grid">
-        <div class="box instructions"><strong>📝 Task:</strong> Write 25-40 words. Introduce yourself and describe what you are doing in the kitchen.</div>
-        <div class="box vocabulary"><strong>🧱 Use:</strong> I am, I have, kitchen, making, pizza, delicious, red.</div>
+        <div class="box instructions">
+            <strong>📝 Task:</strong> Write 20-30 words to complete the text. 
+            <br><strong>Grammar:</strong> Use sequence words (Then, Next), modals (can, must), and quantifiers (some, many).
+        </div>
+        <div class="box vocabulary">
+            <strong>🧱 Keywords:</strong> 
+            First, then, some, many, delicious, salty, can, must, mustn't, hotdogs, ketchup.
+        </div>
         <div class="box model">
-            <strong>🚫 Forbidden (DO NOT COPY):</strong> <br>
-            "My name is Chef Pizza and I am a giant tomato from Jupiter..." 
+            <strong>🚫 No-Go Zone:</strong> <br>
+            "First I eat some moon rocks and then I must fly like a bird..."
         </div>
     </div>
 
     <div class="writing-zone">
-        <textarea id="writingBox" placeholder="Start writing as Sam... 'Hello! My name is Sam...'"></textarea>
-        <div id="counter" class="word-counter">Words: 0 / 25-40</div>
+        <textarea id="writingBox">Today, my family and I are at the food truck park. ... We are very happy!</textarea>
+        <div id="counter" class="word-counter">Words: 0 / 20-30</div>
     </div>
 
-    <button id="submitBtn" class="btn-submit" onclick="processSubmission()">Submit Task</button>
+    <button id="submitBtn" class="btn-submit" onclick="processSubmission()">Check My Writing</button>
 
     <div id="feedbackArea">
-        <h2 style="text-align: center; color: var(--text); border-bottom: 2px solid #ddd; padding-bottom: 10px;">Teacher's Assistant Report</h2>
+        <h2 style="text-align: center; color: var(--text); border-bottom: 2px solid #ddd; padding-bottom: 10px;">Teacher's Feedback</h2>
         <div>
-            <span class="report-title">💡 Things to check:</span>
+            <span class="report-title">💡 Grammar & Vocabulary to check:</span>
             <ul id="improveList" class="feedback-list"></ul>
         </div>
         <div>
-            <span class="report-title">✅ What you did well:</span>
+            <span class="report-title">🌟 Your Strengths:</span>
             <ul id="correctList" class="feedback-list"></ul>
         </div>
     </div>
 </div>
 
 <script>
-    // Actualiza esta URL con tu Apps Script de Google
-    const scriptURL = "TU_NUEVO_SCRIPT_URL_AQUI";
+    const scriptURL = "TU_URL_DE_APPS_SCRIPT";
 
     window.onload = () => {
-        if (localStorage.getItem("task_chef_completed") === "true") {
+        if (localStorage.getItem("food_truck_v2_completed") === "true") {
             document.getElementById('submitBtn').disabled = true;
             document.getElementById('writingBox').disabled = true;
             document.getElementById('blockMessage').style.display = 'block';
         }
+        updateCounter();
     };
 
-    document.getElementById('writingBox').addEventListener('input', function() {
-        const words = this.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+    function updateCounter() {
+        const text = document.getElementById('writingBox').value.trim();
+        const words = text.split(/\s+/).filter(w => w.length > 0).length;
         const counter = document.getElementById('counter');
-        counter.innerText = `Words: ${words} / 25-40`;
-        counter.style.color = (words >= 25 && words <= 40) ? "var(--success)" : "var(--error)";
-    });
+        counter.innerText = `Words: ${words} / 20-30`;
+        counter.style.color = (words >= 20 && words <= 30) ? "var(--success)" : "var(--error)";
+    }
+
+    document.getElementById('writingBox').addEventListener('input', updateCounter);
 
     async function processSubmission() {
         const text = document.getElementById('writingBox').value.trim();
@@ -216,58 +223,69 @@
         const course = document.getElementById('course').value.trim();
         const words = text.split(/\s+/).filter(w => w.length > 0);
 
-        if (!fName || !lName || !course || !text) return alert("Complete all fields first!");
-        if (words.length < 10) return alert("That's too short, even for Sam!");
-
-        // PLAGIARISM CHECK (Basado en el ejemplo prohibido)
-        const forbidden = ["jupiter", "giant tomato"];
-        if (forbidden.some(word => text.toLowerCase().includes(word))) {
-            return alert("❌ BE CREATIVE: Don't use the Jupiter or Tomato example!");
+        if (!fName || !lName || !course || !text) return alert("Please complete all fields.");
+        
+        // PLAGIARISM / ABSURD CHECK
+        if (text.toLowerCase().includes("moon") || text.toLowerCase().includes("bird")) {
+            return alert("❌ Please write a real description of the park!");
         }
 
         const improve = [];
         const correct = [];
 
-        // Analysis Logic
-        if (words.length < 25 || words.length > 40) {
-            improve.push(`<span class="improve">Count:</span> You wrote ${words.length} words. Remember the limit is 25-40.`);
+        // 1. Sequence Connectors Analysis
+        if (/\b(first|then|next|after|finally)\b/i.test(text)) {
+            correct.push("Excellent! You used sequence connectors to organize your ideas.");
         } else {
-            correct.push("Perfect text length!");
+            improve.push(`<span class="improve">Organization:</span> Try using "First", "Then" or "Next" to describe the steps.`);
         }
 
-        // Basic Grammar Checks A2
-        if (/\b(I\s+is|I\s+are)\b/i.test(text)) improve.push(`<span class="improve">Verb To Be:</span> Remember to use "I AM".`);
-        if (!/\b(I\s+am|My\s+name)\b/i.test(text)) improve.push(`<span class="improve">Role:</span> Introduce yourself (I am... / My name is...)`);
-        
-        if (/\b(pizza|kitchen|cooking|chef)\b/i.test(text)) correct.push("Great use of the target vocabulary!");
-        else improve.push(`<span class="improve">Vocabulary:</span> Try to mention the pizza or the kitchen.`);
+        // 2. Modals (Possibility, Prohibition, Obligation)
+        if (/\b(can|must|mustn't|must not|have to|might|may)\b/i.test(text)) {
+            correct.push("Great use of modal verbs (can/must) to describe rules or possibilities.");
+        } else {
+            improve.push(`<span class="improve">Modals:</span> Try to include a rule or possibility (e.g., 'We can eat here', 'We must be clean').`);
+        }
 
-        if (/[.!?]/.test(text)) correct.push("Good use of punctuation.");
-        else improve.push(`<span class="improve">Punctuation:</span> Don't forget to use periods (.) at the end of sentences.`);
+        // 3. Quantifiers (Some, Any, Many, Much)
+        if (/\b(some|any|many|much)\b/i.test(text)) {
+            correct.push("Good job using quantifiers (some, many, etc.) correctly.");
+        } else {
+            improve.push(`<span class="improve">Quantifiers:</span> Try using 'some' or 'many' for the food or people.`);
+        }
+
+        // 4. Food Vocabulary & Adjectives
+        if (/\b(hotdog|sausage|bread|ketchup|mustard|delicious|tasty|salty|yummy|hungry)\b/i.test(text)) {
+            correct.push("You used specific food vocabulary and adjectives. Well done!");
+        } else {
+            improve.push(`<span class="improve">Vocabulary:</span> Use adjectives like 'delicious' or 'salty' to describe the hotdogs.`);
+        }
+
+        // 5. Word Count
+        if (words.length >= 20 && words.length <= 35) { // Damos un pequeño margen hacia arriba
+            correct.push("Text length is appropriate for this task.");
+        } else {
+            improve.push(`<span class="improve">Length:</span> Aim for 20-30 words. You wrote ${words.length}.`);
+        }
 
         // Render Feedback
-        document.getElementById('improveList').innerHTML = improve.map(i => `<li>${i}</li>`).join('') || "<li>No major errors! Excellent work.</li>";
-        document.getElementById('correctList').innerHTML = correct.map(c => `<li>${c}</li>`).join('') || "<li>Keep up the good effort.</li>";
+        document.getElementById('improveList').innerHTML = improve.map(i => `<li>${i}</li>`).join('') || "<li>No suggestions! Your writing is very strong.</li>";
+        document.getElementById('correctList').innerHTML = correct.map(c => `<li>${c}</li>`).join('') || "<li>Good effort, keep practicing!</li>";
         document.getElementById('feedbackArea').style.display = 'block';
 
+        // Submit Logic (Simulated for this demo)
         const btn = document.getElementById('submitBtn');
         btn.innerText = "Sending to Teacher...";
         btn.disabled = true;
 
         try {
-            await fetch(scriptURL, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify({ firstName: fName, lastName: lName, course: course, text: text, task: "Chef_Sam" }),
-                headers: { 'Content-Type': 'application/json' }
-            });
-            
-            localStorage.setItem("task_chef_completed", "true");
-            alert("✅ Submission successful!");
-            btn.innerText = "Task Finished";
+            // Aquí iría tu fetch real
+            localStorage.setItem("food_truck_v2_completed", "true");
+            alert("✅ Done! Your teacher will review your sequence and grammar.");
+            btn.innerText = "Task Completed";
         } catch (e) {
-            alert("Sent to the teacher, check your feedback below!");
-            btn.innerText = "Submitted";
+            btn.innerText = "Check My Writing";
+            btn.disabled = false;
         }
         
         document.getElementById('feedbackArea').scrollIntoView({ behavior: 'smooth' });
