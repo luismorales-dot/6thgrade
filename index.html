@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Writing A2+: Food Truck Experience</title>
+    <title>Writing Task: Food Truck Park</title>
     <style>
         :root {
             --primary: #d35400;
             --success: #27ae60;
             --error: #e74c3c;
-            --warning: #f39c12;
             --bg: #fdfaf4;
             --text: #2c3e50;
         }
@@ -160,8 +159,8 @@
 
     <div class="instruction-grid">
         <div class="box instructions">
-            <strong>📝 Task:</strong> Write 20-30 <u>new</u> words to complete the text. 
-            <br><strong>Grammar:</strong> Sequence words (Then, Next), modals (can, must), and quantifiers (some, many).
+            <strong>📝 Task:</strong> Write 20-30 <u>new</u> words.
+            <br><strong>Grammar:</strong> Sequence (Then, Next), modals (can, must), and quantifiers (some, many).
         </div>
         <div class="box vocabulary">
             <strong>🧱 Keywords:</strong> 
@@ -169,7 +168,7 @@
         </div>
         <div class="box model">
             <strong>🚫 No-Go Zone:</strong> <br>
-            "First I eat some moon rocks and then I must fly like a bird..."
+            "First I eat some moon rocks..."
         </div>
     </div>
 
@@ -194,16 +193,9 @@
 </div>
 
 <script>
-    const scriptURL = "TU_URL_DE_APPS_SCRIPT";
-    // El texto base tiene 15 palabras (Today=1, my=2, family=3...)
     const BASE_WORDS_COUNT = 15; 
 
     window.onload = () => {
-        if (localStorage.getItem("food_truck_v2_completed") === "true") {
-            document.getElementById('submitBtn').disabled = true;
-            document.getElementById('writingBox').disabled = true;
-            document.getElementById('blockMessage').style.display = 'block';
-        }
         updateCounter();
     };
 
@@ -211,7 +203,7 @@
         const fullText = document.getElementById('writingBox').value.trim();
         const totalWords = fullText.split(/\s+/).filter(w => w.length > 0).length;
         
-        // CALCULAMOS SOLO LAS PALABRAS NUEVAS
+        // LÓGICA DE DESCUENTO: No contamos las 15 palabras base
         const newWords = Math.max(0, totalWords - BASE_WORDS_COUNT);
         
         const counter = document.getElementById('counter');
@@ -221,73 +213,40 @@
 
     document.getElementById('writingBox').addEventListener('input', updateCounter);
 
-    async function processSubmission() {
+    function processSubmission() {
         const text = document.getElementById('writingBox').value.trim();
         const fName = document.getElementById('firstName').value.trim();
         const lName = document.getElementById('lastName').value.trim();
-        const course = document.getElementById('course').value.trim();
         const totalWords = text.split(/\s+/).filter(w => w.length > 0).length;
         const newWordsCount = Math.max(0, totalWords - BASE_WORDS_COUNT);
 
-        if (!fName || !lName || !course || !text) return alert("Please complete all fields.");
+        if (!fName || !lName || !text) return alert("Complete the fields!");
         
         const improve = [];
         const correct = [];
 
-        // 1. Análisis de Conectores de Secuencia
-        if (/\b(first|then|next|after|finally)\b/i.test(text)) {
-            correct.push("Excellent! You used sequence connectors to organize your ideas.");
-        } else {
-            improve.push(`<span class="improve">Organization:</span> Try using "First", "Then" or "Next" to describe the steps.`);
-        }
+        // 1. Conectores
+        if (/\b(first|then|next|after|finally)\b/i.test(text)) correct.push("Great sequence words!");
+        else improve.push("Try adding sequence words like 'Then' or 'Next'.");
 
-        // 2. Modales (Possibility, Prohibition, Obligation)
-        if (/\b(can|must|mustn't|must not|have to|might|may)\b/i.test(text)) {
-            correct.push("Great use of modal verbs (can/must) to describe rules or possibilities.");
-        } else {
-            improve.push(`<span class="improve">Modals:</span> try to include a rule or possibility (e.g., 'We can eat here', 'We must be clean').`);
-        }
+        // 2. Modales
+        if (/\b(can|must|mustn't|have to)\b/i.test(text)) correct.push("Excellent use of modals!");
+        else improve.push("Try to use 'can' or 'must' for rules.");
 
-        // 3. Cuantificadores (Some, Any, Many, Much)
-        if (/\b(some|any|many|much)\b/i.test(text)) {
-            correct.push("Good job using quantifiers (some, many, etc.) correctly.");
-        } else {
-            improve.push(`<span class="improve">Quantifiers:</span> Try using 'some' or 'many' for the food or people.`);
-        }
+        // 3. Cuantificadores
+        if (/\b(some|any|many|much)\b/i.test(text)) correct.push("Good use of quantifiers!");
+        else improve.push("Use 'some' or 'many' for the food.");
 
-        // 4. Vocabulario de Comida y Adjetivos
-        if (/\b(hotdog|sausage|bread|ketchup|mustard|delicious|tasty|salty|yummy|hungry)\b/i.test(text)) {
-            correct.push("You used specific food vocabulary and adjectives. Well done!");
-        } else {
-            improve.push(`<span class="improve">Vocabulary:</span> Use adjectives like 'delicious' or 'salty' to describe the hotdogs.`);
-        }
-
-        // 5. Validación del conteo de palabras nuevas
+        // 4. Validación del conteo (Solo palabras nuevas)
         if (newWordsCount >= 20 && newWordsCount <= 30) {
-            correct.push("Perfect! Your new contribution has the required length.");
-        } else if (newWordsCount < 20) {
-            improve.push(`<span class="improve">Length:</span> Your contribution is a bit short. Write at least 20 new words.`);
+            correct.push("Perfect length!");
         } else {
-            improve.push(`<span class="improve">Length:</span> You wrote ${newWordsCount} new words. Try to keep it under 30.`);
+            improve.push(`Word count: You wrote ${newWordsCount} new words. Aim for 20-30.`);
         }
 
-        document.getElementById('improveList').innerHTML = improve.map(i => `<li>${i}</li>`).join('') || "<li>No suggestions! Your writing is very strong.</li>";
-        document.getElementById('correctList').innerHTML = correct.map(c => `<li>${c}</li>`).join('') || "<li>Good effort, keep practicing!</li>";
+        document.getElementById('improveList').innerHTML = improve.map(i => `<li>${i}</li>`).join('');
+        document.getElementById('correctList').innerHTML = correct.map(c => `<li>${c}</li>`).join('');
         document.getElementById('feedbackArea').style.display = 'block';
-
-        const btn = document.getElementById('submitBtn');
-        btn.innerText = "Sending to Teacher...";
-        btn.disabled = true;
-
-        try {
-            localStorage.setItem("food_truck_v2_completed", "true");
-            alert("✅ Done! Your teacher will review your sequence and grammar.");
-            btn.innerText = "Task Completed";
-        } catch (e) {
-            btn.innerText = "Check My Writing";
-            btn.disabled = false;
-        }
-        
         document.getElementById('feedbackArea').scrollIntoView({ behavior: 'smooth' });
     }
 </script>
